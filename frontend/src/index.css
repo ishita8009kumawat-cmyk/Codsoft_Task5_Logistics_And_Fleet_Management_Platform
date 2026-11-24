@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
+
+  --color-ink: #16232e;
+  --color-ink-light: #223244;
+  --color-paper: #f4f6f7;
+  --color-paper-dim: #e8ecee;
+  --color-card: #ffffff;
+  --color-line: #dde3e6;
+  --color-text: #1c2a33;
+  --color-text-dim: #67767f;
+  --color-orange: #d9631e;
+  --color-orange-light: #ea7d3c;
+  --color-good: #2f7a52;
+  --color-good-bg: #e6f1ea;
+  --color-bad: #b3462f;
+  --color-bad-bg: #f6e7e2;
+  --color-warn: #b8862c;
+  --color-warn-bg: #f5ecd8;
+  --color-info: #2f6a8a;
+  --color-info-bg: #e3edf2;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+  }
+  ::selection {
+    background: var(--color-orange-light);
+    color: white;
+  }
+}
+
+@layer components {
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .stamp-good {
+    background: var(--color-good-bg);
+    color: var(--color-good);
+    border-color: color-mix(in srgb, var(--color-good) 30%, transparent);
+  }
+  .stamp-bad {
+    background: var(--color-bad-bg);
+    color: var(--color-bad);
+    border-color: color-mix(in srgb, var(--color-bad) 30%, transparent);
+  }
+  .stamp-warn {
+    background: var(--color-warn-bg);
+    color: var(--color-warn);
+    border-color: color-mix(in srgb, var(--color-warn) 30%, transparent);
+  }
+  .stamp-info {
+    background: var(--color-info-bg);
+    color: var(--color-info);
+    border-color: color-mix(in srgb, var(--color-info) 30%, transparent);
+  }
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--color-ink);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--color-ink-light);
+  }
+  .btn-orange {
+    background: var(--color-orange);
+    color: white;
+  }
+  .btn-orange:hover {
+    background: var(--color-orange-light);
+  }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-line);
+    color: var(--color-text);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-ink);
+  }
+  .btn-danger {
+    background: var(--color-bad-bg);
+    color: var(--color-bad);
+  }
+  .btn-danger:hover {
+    background: var(--color-bad);
+    color: white;
+  }
+  .input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-card);
+    font-size: 0.875rem;
+    outline: none;
+  }
+  .input:focus {
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-orange) 15%, transparent);
+  }
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-dim);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}
